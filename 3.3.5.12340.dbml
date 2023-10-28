@@ -1,33 +1,33 @@
 Project DBC_3_3_5_12340 {
     Note: 'Database Client tables for World of Warcraft 3.3.5.12340'
 }
-Table Achievement {
+Table DBC.Achievement {
     ID int [primary key]
-    Faction int [ref: < Faction.ID]
-    Instance_ID int [ref: < Map.ID]
-    Supercedes int [ref: < Achievement.ID]
+    Faction int [ref: < DBC.Faction.ID]
+    Instance_ID int [ref: < DBC.Map.ID]
+    Supercedes int [ref: < DBC.Achievement.ID]
     Title_lang locstring
     Description_lang locstring
-    Category int [ref: < Achievement_Category.ID]
+    Category int [ref: < DBC.Achievement_Category.ID]
     Points int
     Ui_order int
     Flags int
-    IconID int [ref: < SpellIcon.ID]
+    IconID int [ref: < DBC.SpellIcon.ID]
     Reward_lang locstring
     Minimum_criteria int
-    Shares_criteria int [ref: < Achievement.ID]
+    Shares_criteria int [ref: < DBC.Achievement.ID]
     Note: 'Achievement client database table for version 3.3.5.12340'
 }
-Table Achievement_Category {
+Table DBC.Achievement_Category {
     ID int [primary key]
-    Parent int [ref: < Achievement_Category.ID]
+    Parent int [ref: < DBC.Achievement_Category.ID]
     Name_lang locstring
     Ui_order int
     Note: 'Achievement_Category client database table for version 3.3.5.12340'
 }
-Table Achievement_Criteria {
+Table DBC.Achievement_Criteria {
     ID int [primary key]
-    Achievement_ID int [ref: < Achievement.ID]
+    Achievement_ID int [ref: < DBC.Achievement.ID]
     Type int
     Asset_ID int
     Quantity int
@@ -43,61 +43,61 @@ Table Achievement_Criteria {
     Ui_order int
     Note: 'Achievement_Criteria client database table for version 3.3.5.12340'
 }
-Table AnimationData {
+Table DBC.AnimationData {
     ID int [primary key]
     Name string
     Weaponflags int
     Bodyflags int
     Flags int
-    Fallback int [ref: < AnimationData.ID]
-    BehaviorID int [ref: < AnimationData.ID]
+    Fallback int [ref: < DBC.AnimationData.ID]
+    BehaviorID int [ref: < DBC.AnimationData.ID]
     BehaviorTier int
     Note: 'AnimationData client database table for version 3.3.5.12340'
 }
-Table AreaGroup {
+Table DBC.AreaGroup {
     ID int [primary key]
-    AreaID int [ref: < AreaTable.ID]
-    NextAreaID int [ref: < AreaGroup.ID]
+    AreaID int [ref: < DBC.AreaTable.ID]
+    NextAreaID int [ref: < DBC.AreaGroup.ID]
     Note: 'AreaGroup client database table for version 3.3.5.12340'
 }
-Table AreaPOI {
+Table DBC.AreaPOI {
     ID int [primary key]
     Importance int
     Icon int
-    FactionID int [ref: < FactionTemplate.ID]
+    FactionID int [ref: < DBC.FactionTemplate.ID]
     Pos float
-    ContinentID int [ref: < Map.ID]
+    ContinentID int [ref: < DBC.Map.ID]
     Flags int
-    AreaID int [ref: < AreaTable.ID]
+    AreaID int [ref: < DBC.AreaTable.ID]
     Name_lang locstring
     Description_lang locstring
     WorldStateID int
     WorldMapLink int
     Note: 'AreaPOI client database table for version 3.3.5.12340'
 }
-Table AreaTable {
+Table DBC.AreaTable {
     ID int [primary key]
-    ContinentID int [ref: < Map.ID]
-    ParentAreaID int [ref: < AreaTable.ID]
+    ContinentID int [ref: < DBC.Map.ID]
+    ParentAreaID int [ref: < DBC.AreaTable.ID]
     AreaBit int
     Flags int
-    SoundProviderPref int [ref: < SoundProviderPreferences.ID]
-    SoundProviderPrefUnderwater int [ref: < SoundProviderPreferences.ID]
-    AmbienceID int [ref: < SoundAmbience.ID]
-    ZoneMusic int [ref: < ZoneMusic.ID]
-    IntroSound int [ref: < ZoneIntroMusicTable.ID]
+    SoundProviderPref int [ref: < DBC.SoundProviderPreferences.ID]
+    SoundProviderPrefUnderwater int [ref: < DBC.SoundProviderPreferences.ID]
+    AmbienceID int [ref: < DBC.SoundAmbience.ID]
+    ZoneMusic int [ref: < DBC.ZoneMusic.ID]
+    IntroSound int [ref: < DBC.ZoneIntroMusicTable.ID]
     ExplorationLevel int
     AreaName_lang locstring
     FactionGroupMask int
-    LiquidTypeID int [ref: < LiquidType.ID]
+    LiquidTypeID int [ref: < DBC.LiquidType.ID]
     MinElevation float
     Ambient_multiplier float
-    LightID int [ref: < Light.ID]
+    LightID int [ref: < DBC.Light.ID]
     Note: 'AreaTable client database table for version 3.3.5.12340'
 }
-Table AreaTrigger {
+Table DBC.AreaTrigger {
     ID int [primary key]
-    ContinentID int [ref: < Map.ID]
+    ContinentID int [ref: < DBC.Map.ID]
     Pos float
     Radius float
     Box_length float
@@ -106,33 +106,33 @@ Table AreaTrigger {
     Box_yaw float
     Note: 'AreaTrigger client database table for version 3.3.5.12340'
 }
-Table AttackAnimKits {
+Table DBC.AttackAnimKits {
     ID int [primary key]
     ItemSubclassID int
-    AnimTypeID int [ref: < AttackAnimTypes.AnimID]
+    AnimTypeID int [ref: < DBC.AttackAnimTypes.AnimID]
     AnimFrequency int
     WhichHand int
     Note: 'AttackAnimKits client database table for version 3.3.5.12340'
 }
-Table AttackAnimTypes {
+Table DBC.AttackAnimTypes {
     AnimID int
     AnimName string
     Note: 'AttackAnimTypes client database table for version 3.3.5.12340'
 }
-Table AuctionHouse {
+Table DBC.AuctionHouse {
     ID int [primary key]
-    FactionID int [ref: < Faction.ID]
+    FactionID int [ref: < DBC.Faction.ID]
     DepositRate int
     ConsignmentRate int
     Name_lang locstring
     Note: 'AuctionHouse client database table for version 3.3.5.12340'
 }
-Table BankBagSlotPrices {
+Table DBC.BankBagSlotPrices {
     ID int [primary key]
     Cost int
     Note: 'BankBagSlotPrices client database table for version 3.3.5.12340'
 }
-Table BannedAddons {
+Table DBC.BannedAddons {
     ID int [primary key]
     NameMD5 int
     VersionMD5 int
@@ -140,20 +140,20 @@ Table BannedAddons {
     Flags int
     Note: 'BannedAddons client database table for version 3.3.5.12340'
 }
-Table BarberShopStyle {
+Table DBC.BarberShopStyle {
     ID int [primary key]
     Type int
     DisplayName_lang locstring
     Description_lang locstring
     Cost_Modifier float
-    Race int [ref: < ChrRaces.ID]
+    Race int [ref: < DBC.ChrRaces.ID]
     Sex int
     Data int
     Note: 'BarberShopStyle client database table for version 3.3.5.12340'
 }
-Table BattlemasterList {
+Table DBC.BattlemasterList {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     InstanceType int
     GroupsAllowed int
     Name_lang locstring
@@ -163,7 +163,7 @@ Table BattlemasterList {
     MaxLevel int
     Note: 'BattlemasterList client database table for version 3.3.5.12340'
 }
-Table CameraShakes {
+Table DBC.CameraShakes {
     ID int [primary key]
     ShakeType int
     Direction int
@@ -174,7 +174,7 @@ Table CameraShakes {
     Coefficient float
     Note: 'CameraShakes client database table for version 3.3.5.12340'
 }
-Table Cfg_Categories {
+Table DBC.Cfg_Categories {
     ID int [primary key]
     LocaleMask int
     Create_charsetMask int
@@ -182,37 +182,37 @@ Table Cfg_Categories {
     Name_lang locstring
     Note: 'Cfg_Categories client database table for version 3.3.5.12340'
 }
-Table Cfg_Configs {
+Table DBC.Cfg_Configs {
     ID int [primary key]
     RealmType int
     PlayerKillingAllowed int
     Roleplaying int
     Note: 'Cfg_Configs client database table for version 3.3.5.12340'
 }
-Table CharacterFacialHairStyles {
-    RaceID int [ref: < ChrRaces.ID]
+Table DBC.CharacterFacialHairStyles {
+    RaceID int [ref: < DBC.ChrRaces.ID]
     SexID int
     VariationID int
     Geoset int
     Note: 'CharacterFacialHairStyles client database table for version 3.3.5.12340'
 }
-Table CharBaseInfo {
-    RaceID int [ref: < ChrRaces.ID]
-    ClassID int [ref: < ChrClasses.ID]
+Table DBC.CharBaseInfo {
+    RaceID int [ref: < DBC.ChrRaces.ID]
+    ClassID int [ref: < DBC.ChrClasses.ID]
     Note: 'CharBaseInfo client database table for version 3.3.5.12340'
 }
-Table CharHairGeosets {
+Table DBC.CharHairGeosets {
     ID int [primary key]
-    RaceID int [ref: < ChrRaces.ID]
+    RaceID int [ref: < DBC.ChrRaces.ID]
     SexID int
     VariationID int
     GeosetID int
     Showscalp int
     Note: 'CharHairGeosets client database table for version 3.3.5.12340'
 }
-Table CharHairTextures {
+Table DBC.CharHairTextures {
     ID int [primary key]
-    Field_0_5_3_3368_001_race int [ref: < ChrRaces.ID]
+    Field_0_5_3_3368_001_race int [ref: < DBC.ChrRaces.ID]
     Field_0_5_3_3368_002_gender int
     Field_0_5_3_3368_003 int
     Field_0_5_3_3368_004_mayberacemask int
@@ -221,9 +221,9 @@ Table CharHairTextures {
     Field_0_5_3_3368_007 int
     Note: 'CharHairTextures client database table for version 3.3.5.12340'
 }
-Table CharSections {
+Table DBC.CharSections {
     ID int [primary key]
-    RaceID int [ref: < ChrRaces.ID]
+    RaceID int [ref: < DBC.ChrRaces.ID]
     SexID int
     BaseSection int
     TextureName string
@@ -232,18 +232,18 @@ Table CharSections {
     ColorIndex int
     Note: 'CharSections client database table for version 3.3.5.12340'
 }
-Table CharStartOutfit {
+Table DBC.CharStartOutfit {
     ID int [primary key]
-    RaceID int [ref: < ChrRaces.ID]
-    ClassID int [ref: < ChrClasses.ID]
+    RaceID int [ref: < DBC.ChrRaces.ID]
+    ClassID int [ref: < DBC.ChrClasses.ID]
     SexID int
     OutfitID int
-    ItemID int [ref: < Item.ID]
-    DisplayItemID int [ref: < ItemDisplayInfo.ID]
+    ItemID int [ref: < DBC.Item.ID]
+    DisplayItemID int [ref: < DBC.ItemDisplayInfo.ID]
     InventoryType int
     Note: 'CharStartOutfit client database table for version 3.3.5.12340'
 }
-Table CharTitles {
+Table DBC.CharTitles {
     ID int [primary key]
     Condition_ID int
     Name_lang locstring
@@ -251,13 +251,13 @@ Table CharTitles {
     Mask_ID int
     Note: 'CharTitles client database table for version 3.3.5.12340'
 }
-Table CharVariations {
-    RaceID int [ref: < ChrRaces.ID]
+Table DBC.CharVariations {
+    RaceID int [ref: < DBC.ChrRaces.ID]
     SexID int
     TextureHoldLayer int
     Note: 'CharVariations client database table for version 3.3.5.12340'
 }
-Table ChatChannels {
+Table DBC.ChatChannels {
     ID int [primary key]
     Flags int
     FactionGroup int
@@ -265,13 +265,13 @@ Table ChatChannels {
     Shortcut_lang locstring
     Note: 'ChatChannels client database table for version 3.3.5.12340'
 }
-Table ChatProfanity {
+Table DBC.ChatProfanity {
     ID int [primary key]
     Text string
     Language int
     Note: 'ChatProfanity client database table for version 3.3.5.12340'
 }
-Table ChrClasses {
+Table DBC.ChrClasses {
     ID int [primary key]
     DamageBonusStat int
     DisplayPower int
@@ -282,24 +282,24 @@ Table ChrClasses {
     Filename string
     SpellClassSet int
     Flags int
-    CinematicSequenceID int [ref: < CinematicSequences.ID]
+    CinematicSequenceID int [ref: < DBC.CinematicSequences.ID]
     Required_expansion int
     Note: 'ChrClasses client database table for version 3.3.5.12340'
 }
-Table ChrRaces {
+Table DBC.ChrRaces {
     ID int [primary key]
     Flags int
-    FactionID int [ref: < FactionTemplate.ID]
-    ExplorationSoundID int [ref: < SoundEntries.ID]
-    MaleDisplayID int [ref: < CreatureDisplayInfo.ID]
-    FemaleDisplayID int [ref: < CreatureDisplayInfo.ID]
+    FactionID int [ref: < DBC.FactionTemplate.ID]
+    ExplorationSoundID int [ref: < DBC.SoundEntries.ID]
+    MaleDisplayID int [ref: < DBC.CreatureDisplayInfo.ID]
+    FemaleDisplayID int [ref: < DBC.CreatureDisplayInfo.ID]
     ClientPrefix string
-    BaseLanguage int [ref: < Languages.ID]
-    CreatureType int [ref: < CreatureType.ID]
-    ResSicknessSpellID int [ref: < Spell.ID]
-    SplashSoundID int [ref: < SoundEntries.ID]
+    BaseLanguage int [ref: < DBC.Languages.ID]
+    CreatureType int [ref: < DBC.CreatureType.ID]
+    ResSicknessSpellID int [ref: < DBC.Spell.ID]
+    SplashSoundID int [ref: < DBC.SoundEntries.ID]
     ClientFileString string
-    CinematicSequenceID int [ref: < CinematicSequences.ID]
+    CinematicSequenceID int [ref: < DBC.CinematicSequences.ID]
     Alliance int
     Name_lang locstring
     Name_female_lang locstring
@@ -309,58 +309,58 @@ Table ChrRaces {
     Required_expansion int
     Note: 'ChrRaces client database table for version 3.3.5.12340'
 }
-Table CinematicCamera {
+Table DBC.CinematicCamera {
     ID int [primary key]
     Model string
-    SoundID int [ref: < SoundEntries.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
     Origin float
     OriginFacing float
     Note: 'CinematicCamera client database table for version 3.3.5.12340'
 }
-Table CinematicSequences {
+Table DBC.CinematicSequences {
     ID int [primary key]
-    SoundID int [ref: < SoundEntries.ID]
-    Camera int [ref: < CinematicCamera.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
+    Camera int [ref: < DBC.CinematicCamera.ID]
     Note: 'CinematicSequences client database table for version 3.3.5.12340'
 }
-Table CreatureDisplayInfo {
+Table DBC.CreatureDisplayInfo {
     ID int [primary key]
-    ModelID int [ref: < CreatureModelData.ID]
-    SoundID int [ref: < CreatureSoundData.ID]
-    ExtendedDisplayInfoID int [ref: < CreatureDisplayInfoExtra.ID]
+    ModelID int [ref: < DBC.CreatureModelData.ID]
+    SoundID int [ref: < DBC.CreatureSoundData.ID]
+    ExtendedDisplayInfoID int [ref: < DBC.CreatureDisplayInfoExtra.ID]
     CreatureModelScale float
     CreatureModelAlpha int
     TextureVariation string
     PortraitTextureName string
     SizeClass int
-    BloodID int [ref: < UnitBlood.ID]
-    NPCSoundID int [ref: < NPCSounds.ID]
-    ParticleColorID int [ref: < ParticleColor.ID]
+    BloodID int [ref: < DBC.UnitBlood.ID]
+    NPCSoundID int [ref: < DBC.NPCSounds.ID]
+    ParticleColorID int [ref: < DBC.ParticleColor.ID]
     CreatureGeosetData int
-    ObjectEffectPackageID int [ref: < ObjectEffectPackage.ID]
+    ObjectEffectPackageID int [ref: < DBC.ObjectEffectPackage.ID]
     Note: 'CreatureDisplayInfo client database table for version 3.3.5.12340'
 }
-Table CreatureDisplayInfoExtra {
+Table DBC.CreatureDisplayInfoExtra {
     ID int [primary key]
-    DisplayRaceID int [ref: < ChrRaces.ID]
+    DisplayRaceID int [ref: < DBC.ChrRaces.ID]
     DisplaySexID int
     SkinID int
     FaceID int
     HairStyleID int
     HairColorID int
     FacialHairID int
-    NPCItemDisplay int [ref: < ItemDisplayInfo.ID]
+    NPCItemDisplay int [ref: < DBC.ItemDisplayInfo.ID]
     Flags int
     BakeName string
     Note: 'CreatureDisplayInfoExtra client database table for version 3.3.5.12340'
 }
-Table CreatureFamily {
+Table DBC.CreatureFamily {
     ID int [primary key]
     MinScale float
     MinScaleLevel int
     MaxScale float
     MaxScaleLevel int
-    SkillLine int [ref: < SkillLine.ID]
+    SkillLine int [ref: < DBC.SkillLine.ID]
     PetFoodMask int
     PetTalentType int
     CategoryEnumID int
@@ -368,21 +368,21 @@ Table CreatureFamily {
     IconFile string
     Note: 'CreatureFamily client database table for version 3.3.5.12340'
 }
-Table CreatureModelData {
+Table DBC.CreatureModelData {
     ID int [primary key]
     Flags int
     ModelName string
     SizeClass int
     ModelScale float
-    BloodID int [ref: < UnitBlood.ID]
-    FootprintTextureID int [ref: < FootprintTextures.ID]
+    BloodID int [ref: < DBC.UnitBlood.ID]
+    FootprintTextureID int [ref: < DBC.FootprintTextures.ID]
     FootprintTextureLength float
     FootprintTextureWidth float
     FootprintParticleScale float
-    FoleyMaterialID int [ref: < Material.ID]
+    FoleyMaterialID int [ref: < DBC.Material.ID]
     FootstepShakeSize int
     DeathThudShakeSize int
-    SoundID int [ref: < CreatureSoundData.ID]
+    SoundID int [ref: < DBC.CreatureSoundData.ID]
     CollisionWidth float
     CollisionHeight float
     MountHeight float
@@ -399,71 +399,71 @@ Table CreatureModelData {
     MissileCollisionRaise float
     Note: 'CreatureModelData client database table for version 3.3.5.12340'
 }
-Table CreatureMovementInfo {
+Table DBC.CreatureMovementInfo {
     ID int [primary key]
     SmoothFacingChaseRate float
     Note: 'CreatureMovementInfo client database table for version 3.3.5.12340'
 }
-Table CreatureSoundData {
+Table DBC.CreatureSoundData {
     ID int [primary key]
-    SoundExertionID int [ref: < SoundEntries.ID]
-    SoundExertionCriticalID int [ref: < SoundEntries.ID]
-    SoundInjuryID int [ref: < SoundEntries.ID]
-    SoundInjuryCriticalID int [ref: < SoundEntries.ID]
+    SoundExertionID int [ref: < DBC.SoundEntries.ID]
+    SoundExertionCriticalID int [ref: < DBC.SoundEntries.ID]
+    SoundInjuryID int [ref: < DBC.SoundEntries.ID]
+    SoundInjuryCriticalID int [ref: < DBC.SoundEntries.ID]
     SoundInjuryCrushingBlowID int
-    SoundDeathID int [ref: < SoundEntries.ID]
-    SoundStunID int [ref: < SoundEntries.ID]
-    SoundStandID int [ref: < SoundEntries.ID]
-    SoundFootstepID int [ref: < FootstepTerrainLookup.CreatureFootstepID]
-    SoundAggroID int [ref: < SoundEntries.ID]
-    SoundWingFlapID int [ref: < SoundEntries.ID]
-    SoundWingGlideID int [ref: < SoundEntries.ID]
-    SoundAlertID int [ref: < SoundEntries.ID]
-    SoundFidget int [ref: < SoundEntries.ID]
-    CustomAttack int [ref: < SoundEntries.ID]
+    SoundDeathID int [ref: < DBC.SoundEntries.ID]
+    SoundStunID int [ref: < DBC.SoundEntries.ID]
+    SoundStandID int [ref: < DBC.SoundEntries.ID]
+    SoundFootstepID int [ref: < DBC.FootstepTerrainLookup.CreatureFootstepID]
+    SoundAggroID int [ref: < DBC.SoundEntries.ID]
+    SoundWingFlapID int [ref: < DBC.SoundEntries.ID]
+    SoundWingGlideID int [ref: < DBC.SoundEntries.ID]
+    SoundAlertID int [ref: < DBC.SoundEntries.ID]
+    SoundFidget int [ref: < DBC.SoundEntries.ID]
+    CustomAttack int [ref: < DBC.SoundEntries.ID]
     NPCSoundID int
-    LoopSoundID int [ref: < SoundEntries.ID]
+    LoopSoundID int [ref: < DBC.SoundEntries.ID]
     CreatureImpactType int
-    SoundJumpStartID int [ref: < SoundEntries.ID]
-    SoundJumpEndID int [ref: < SoundEntries.ID]
-    SoundPetAttackID int [ref: < SoundEntries.ID]
-    SoundPetOrderID int [ref: < SoundEntries.ID]
-    SoundPetDismissID int [ref: < SoundEntries.ID]
+    SoundJumpStartID int [ref: < DBC.SoundEntries.ID]
+    SoundJumpEndID int [ref: < DBC.SoundEntries.ID]
+    SoundPetAttackID int [ref: < DBC.SoundEntries.ID]
+    SoundPetOrderID int [ref: < DBC.SoundEntries.ID]
+    SoundPetDismissID int [ref: < DBC.SoundEntries.ID]
     FidgetDelaySecondsMin float
     FidgetDelaySecondsMax float
-    BirthSoundID int [ref: < SoundEntries.ID]
-    SpellCastDirectedSoundID int [ref: < SoundEntries.ID]
-    SubmergeSoundID int [ref: < SoundEntries.ID]
-    SubmergedSoundID int [ref: < SoundEntries.ID]
-    CreatureSoundDataIDPet int [ref: < CreatureSoundData.ID]
+    BirthSoundID int [ref: < DBC.SoundEntries.ID]
+    SpellCastDirectedSoundID int [ref: < DBC.SoundEntries.ID]
+    SubmergeSoundID int [ref: < DBC.SoundEntries.ID]
+    SubmergedSoundID int [ref: < DBC.SoundEntries.ID]
+    CreatureSoundDataIDPet int [ref: < DBC.CreatureSoundData.ID]
     Note: 'CreatureSoundData client database table for version 3.3.5.12340'
 }
-Table CreatureSpellData {
+Table DBC.CreatureSpellData {
     ID int [primary key]
-    Spells int [ref: < Spell.ID]
+    Spells int [ref: < DBC.Spell.ID]
     Availability int
     Note: 'CreatureSpellData client database table for version 3.3.5.12340'
 }
-Table CreatureType {
+Table DBC.CreatureType {
     ID int [primary key]
     Name_lang locstring
     Flags int
     Note: 'CreatureType client database table for version 3.3.5.12340'
 }
-Table CurrencyCategory {
+Table DBC.CurrencyCategory {
     ID int [primary key]
     Flags int
     Name_lang locstring
     Note: 'CurrencyCategory client database table for version 3.3.5.12340'
 }
-Table CurrencyTypes {
+Table DBC.CurrencyTypes {
     ID int [primary key]
-    ItemID int [ref: < Item.ID]
-    CategoryID int [ref: < CurrencyCategory.ID]
+    ItemID int [ref: < DBC.Item.ID]
+    CategoryID int [ref: < DBC.CurrencyCategory.ID]
     BitIndex int
     Note: 'CurrencyTypes client database table for version 3.3.5.12340'
 }
-Table DanceMoves {
+Table DBC.DanceMoves {
     ID int [primary key]
     Type int
     Param int
@@ -471,30 +471,30 @@ Table DanceMoves {
     Racemask int
     Internal_name string
     Name_lang locstring
-    LockID int [ref: < Lock.ID]
+    LockID int [ref: < DBC.Lock.ID]
     Note: 'DanceMoves client database table for version 3.3.5.12340'
 }
-Table DeathThudLookups {
+Table DBC.DeathThudLookups {
     ID int [primary key]
     SizeClass int
-    TerrainTypeSoundID int [ref: < TerrainTypeSounds.ID]
-    SoundEntryID int [ref: < SoundEntries.ID]
-    SoundEntryIDWater int [ref: < SoundEntries.ID]
+    TerrainTypeSoundID int [ref: < DBC.TerrainTypeSounds.ID]
+    SoundEntryID int [ref: < DBC.SoundEntries.ID]
+    SoundEntryIDWater int [ref: < DBC.SoundEntries.ID]
     Note: 'DeathThudLookups client database table for version 3.3.5.12340'
 }
-Table DeclinedWord {
+Table DBC.DeclinedWord {
     ID int [primary key]
     Word string
     Note: 'DeclinedWord client database table for version 3.3.5.12340'
 }
-Table DeclinedWordCases {
+Table DBC.DeclinedWordCases {
     ID int [primary key]
-    DeclinedWordID int [ref: < DeclinedWord.ID]
+    DeclinedWordID int [ref: < DBC.DeclinedWord.ID]
     CaseIndex int
     DeclinedWord string
     Note: 'DeclinedWordCases client database table for version 3.3.5.12340'
 }
-Table DestructibleModelData {
+Table DBC.DestructibleModelData {
     ID int [primary key]
     State0ImpactEffectDoodadSet int
     State0AmbientDoodadSet int
@@ -516,83 +516,83 @@ Table DestructibleModelData {
     HealEffectSpeed int
     Note: 'DestructibleModelData client database table for version 3.3.5.12340'
 }
-Table DungeonEncounter {
+Table DBC.DungeonEncounter {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     Difficulty int
     OrderIndex int
     Bit int
     Name_lang locstring
-    SpellIconID int [ref: < SpellIcon.ID]
+    SpellIconID int [ref: < DBC.SpellIcon.ID]
     Note: 'DungeonEncounter client database table for version 3.3.5.12340'
 }
-Table DungeonMap {
+Table DBC.DungeonMap {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     FloorIndex int
     MinX float
     MaxX float
     MinY float
     MaxY float
-    ParentWorldMapID int [ref: < AreaTable.ID]
+    ParentWorldMapID int [ref: < DBC.AreaTable.ID]
     Note: 'DungeonMap client database table for version 3.3.5.12340'
 }
-Table DungeonMapChunk {
+Table DBC.DungeonMapChunk {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
-    WMOGroupID int [ref: < WMOAreaTable.WMOGroupID]
-    DungeonMapID int [ref: < DungeonMap.ID]
+    MapID int [ref: < DBC.Map.ID]
+    WMOGroupID int [ref: < DBC.WMOAreaTable.WMOGroupID]
+    DungeonMapID int [ref: < DBC.DungeonMap.ID]
     MinZ float
     Note: 'DungeonMapChunk client database table for version 3.3.5.12340'
 }
-Table DurabilityCosts {
+Table DBC.DurabilityCosts {
     ID int [primary key]
     WeaponSubClassCost int
     ArmorSubClassCost int
     Note: 'DurabilityCosts client database table for version 3.3.5.12340'
 }
-Table DurabilityQuality {
+Table DBC.DurabilityQuality {
     ID int [primary key]
     Data float
     Note: 'DurabilityQuality client database table for version 3.3.5.12340'
 }
-Table Emotes {
+Table DBC.Emotes {
     ID int [primary key]
     EmoteSlashCommand string
-    AnimID int [ref: < AnimationData.ID]
+    AnimID int [ref: < DBC.AnimationData.ID]
     EmoteFlags int
     EmoteSpecProc int
     EmoteSpecProcParam int
-    EventSoundID int [ref: < SoundEntries.ID]
+    EventSoundID int [ref: < DBC.SoundEntries.ID]
     Note: 'Emotes client database table for version 3.3.5.12340'
 }
-Table EmotesText {
+Table DBC.EmotesText {
     ID int [primary key]
     Name string
-    EmoteID int [ref: < Emotes.ID]
-    EmoteText int [ref: < EmotesTextData.ID]
+    EmoteID int [ref: < DBC.Emotes.ID]
+    EmoteText int [ref: < DBC.EmotesTextData.ID]
     Note: 'EmotesText client database table for version 3.3.5.12340'
 }
-Table EmotesTextData {
+Table DBC.EmotesTextData {
     ID int [primary key]
     Text_lang locstring
     Note: 'EmotesTextData client database table for version 3.3.5.12340'
 }
-Table EmotesTextSound {
+Table DBC.EmotesTextSound {
     ID int [primary key]
-    EmotesTextID int [ref: < EmotesText.ID]
-    RaceID int [ref: < ChrRaces.ID]
+    EmotesTextID int [ref: < DBC.EmotesText.ID]
+    RaceID int [ref: < DBC.ChrRaces.ID]
     SexID int
-    SoundID int [ref: < SoundEntries.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
     Note: 'EmotesTextSound client database table for version 3.3.5.12340'
 }
-Table EnvironmentalDamage {
+Table DBC.EnvironmentalDamage {
     ID int [primary key]
     EnumID int
-    VisualkitID int [ref: < SpellVisualKit.ID]
+    VisualkitID int [ref: < DBC.SpellVisualKit.ID]
     Note: 'EnvironmentalDamage client database table for version 3.3.5.12340'
 }
-Table Exhaustion {
+Table DBC.Exhaustion {
     ID int [primary key]
     Xp int
     Factor float
@@ -602,138 +602,138 @@ Table Exhaustion {
     Threshold float
     Note: 'Exhaustion client database table for version 3.3.5.12340'
 }
-Table Faction {
+Table DBC.Faction {
     ID int [primary key]
     ReputationIndex int
     ReputationRaceMask int
     ReputationClassMask int
     ReputationBase int
     ReputationFlags int
-    ParentFactionID int [ref: < Faction.ID]
+    ParentFactionID int [ref: < DBC.Faction.ID]
     ParentFactionMod float
     ParentFactionCap int
     Name_lang locstring
     Description_lang locstring
     Note: 'Faction client database table for version 3.3.5.12340'
 }
-Table FactionGroup {
+Table DBC.FactionGroup {
     ID int [primary key]
     MaskID int
     InternalName string
     Name_lang locstring
     Note: 'FactionGroup client database table for version 3.3.5.12340'
 }
-Table FactionTemplate {
+Table DBC.FactionTemplate {
     ID int [primary key]
-    Faction int [ref: < Faction.ID]
+    Faction int [ref: < DBC.Faction.ID]
     Flags int
-    FactionGroup int [ref: < FactionGroup.ID]
+    FactionGroup int [ref: < DBC.FactionGroup.ID]
     FriendGroup int
     EnemyGroup int
-    Enemies int [ref: < Faction.ID]
-    Friend int [ref: < Faction.ID]
+    Enemies int [ref: < DBC.Faction.ID]
+    Friend int [ref: < DBC.Faction.ID]
     Note: 'FactionTemplate client database table for version 3.3.5.12340'
 }
-Table FileData {
+Table DBC.FileData {
     ID int [primary key]
     Filename string
     Filepath string
     Note: 'FileData client database table for version 3.3.5.12340'
 }
-Table FootprintTextures {
+Table DBC.FootprintTextures {
     ID int [primary key]
     FootstepFilename string
     Note: 'FootprintTextures client database table for version 3.3.5.12340'
 }
-Table FootstepTerrainLookup {
+Table DBC.FootstepTerrainLookup {
     ID int [primary key]
-    CreatureFootstepID int [ref: < SpellVisualEffectName.ID]
-    TerrainSoundID int [ref: < TerrainTypeSounds.ID]
-    SoundID int [ref: < SoundEntries.ID]
-    SoundIDSplash int [ref: < SoundEntries.ID]
+    CreatureFootstepID int [ref: < DBC.SpellVisualEffectName.ID]
+    TerrainSoundID int [ref: < DBC.TerrainTypeSounds.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
+    SoundIDSplash int [ref: < DBC.SoundEntries.ID]
     Note: 'FootstepTerrainLookup client database table for version 3.3.5.12340'
 }
-Table GameObjectArtKit {
+Table DBC.GameObjectArtKit {
     ID int [primary key]
     TextureVariation string
     AttachModel string
     Note: 'GameObjectArtKit client database table for version 3.3.5.12340'
 }
-Table GameObjectDisplayInfo {
+Table DBC.GameObjectDisplayInfo {
     ID int [primary key]
     ModelName string
     Sound int
     GeoBoxMin float
     GeoBoxMax float
-    ObjectEffectPackageID int [ref: < ObjectEffectPackage.ID]
+    ObjectEffectPackageID int [ref: < DBC.ObjectEffectPackage.ID]
     Note: 'GameObjectDisplayInfo client database table for version 3.3.5.12340'
 }
-Table GameTables {
+Table DBC.GameTables {
     Name string
     NumRows int
     NumColumns int
     Note: 'GameTables client database table for version 3.3.5.12340'
 }
-Table GameTips {
+Table DBC.GameTips {
     ID int [primary key]
     Text_lang locstring
     Note: 'GameTips client database table for version 3.3.5.12340'
 }
-Table GemProperties {
+Table DBC.GemProperties {
     ID int [primary key]
-    Enchant_ID int [ref: < SpellItemEnchantment.ID]
+    Enchant_ID int [ref: < DBC.SpellItemEnchantment.ID]
     Maxcount_inv int
     Maxcount_item int
     Type int
     Note: 'GemProperties client database table for version 3.3.5.12340'
 }
-Table GlyphProperties {
+Table DBC.GlyphProperties {
     ID int [primary key]
-    SpellID int [ref: < Spell.ID]
+    SpellID int [ref: < DBC.Spell.ID]
     GlyphSlotFlags int
-    SpellIconID int [ref: < SpellIcon.ID]
+    SpellIconID int [ref: < DBC.SpellIcon.ID]
     Note: 'GlyphProperties client database table for version 3.3.5.12340'
 }
-Table GlyphSlot {
+Table DBC.GlyphSlot {
     ID int [primary key]
     Type int
     Tooltip int
     Note: 'GlyphSlot client database table for version 3.3.5.12340'
 }
-Table GMSurveyAnswers {
+Table DBC.GMSurveyAnswers {
     ID int [primary key]
     Sort_Index int
-    GMSurveyQuestionID int [ref: < GMSurveyQuestions.ID]
+    GMSurveyQuestionID int [ref: < DBC.GMSurveyQuestions.ID]
     Answer_lang locstring
     Note: 'GMSurveyAnswers client database table for version 3.3.5.12340'
 }
-Table GMSurveyCurrentSurvey {
+Table DBC.GMSurveyCurrentSurvey {
     LANGID int [primary key]
-    GMSURVEY_ID int [ref: < GMSurveySurveys.ID]
+    GMSURVEY_ID int [ref: < DBC.GMSurveySurveys.ID]
     Note: 'GMSurveyCurrentSurvey client database table for version 3.3.5.12340'
 }
-Table GMSurveyQuestions {
+Table DBC.GMSurveyQuestions {
     ID int [primary key]
     Question_lang locstring
     Note: 'GMSurveyQuestions client database table for version 3.3.5.12340'
 }
-Table GMSurveySurveys {
+Table DBC.GMSurveySurveys {
     ID int [primary key]
-    Q int [ref: < GMSurveyQuestions.ID]
+    Q int [ref: < DBC.GMSurveyQuestions.ID]
     Note: 'GMSurveySurveys client database table for version 3.3.5.12340'
 }
-Table GMTicketCategory {
+Table DBC.GMTicketCategory {
     ID int [primary key]
     Category_lang locstring
     Note: 'GMTicketCategory client database table for version 3.3.5.12340'
 }
-Table GroundEffectDoodad {
+Table DBC.GroundEffectDoodad {
     ID int [primary key]
     Doodadpath string
     Flags int
     Note: 'GroundEffectDoodad client database table for version 3.3.5.12340'
 }
-Table GroundEffectTexture {
+Table DBC.GroundEffectTexture {
     ID int [primary key]
     DoodadID int
     DoodadWeight int
@@ -741,191 +741,191 @@ Table GroundEffectTexture {
     Sound int
     Note: 'GroundEffectTexture client database table for version 3.3.5.12340'
 }
-Table gtBarberShopCostBase {
+Table DBC.gtBarberShopCostBase {
     Data float
     Note: 'gtBarberShopCostBase client database table for version 3.3.5.12340'
 }
-Table gtChanceToMeleeCrit {
+Table DBC.gtChanceToMeleeCrit {
     Data float
     Note: 'gtChanceToMeleeCrit client database table for version 3.3.5.12340'
 }
-Table gtChanceToMeleeCritBase {
+Table DBC.gtChanceToMeleeCritBase {
     Data float
     Note: 'gtChanceToMeleeCritBase client database table for version 3.3.5.12340'
 }
-Table gtChanceToSpellCrit {
+Table DBC.gtChanceToSpellCrit {
     Data float
     Note: 'gtChanceToSpellCrit client database table for version 3.3.5.12340'
 }
-Table gtChanceToSpellCritBase {
+Table DBC.gtChanceToSpellCritBase {
     Data float
     Note: 'gtChanceToSpellCritBase client database table for version 3.3.5.12340'
 }
-Table gtCombatRatings {
+Table DBC.gtCombatRatings {
     Data float
     Note: 'gtCombatRatings client database table for version 3.3.5.12340'
 }
-Table gtNPCManaCostScaler {
+Table DBC.gtNPCManaCostScaler {
     Data float
     Note: 'gtNPCManaCostScaler client database table for version 3.3.5.12340'
 }
-Table gtOCTClassCombatRatingScalar {
+Table DBC.gtOCTClassCombatRatingScalar {
     ID int [primary key]
     Data float
     Note: 'gtOCTClassCombatRatingScalar client database table for version 3.3.5.12340'
 }
-Table gtOCTRegenHP {
+Table DBC.gtOCTRegenHP {
     Data float
     Note: 'gtOCTRegenHP client database table for version 3.3.5.12340'
 }
-Table gtOCTRegenMP {
+Table DBC.gtOCTRegenMP {
     Data float
     Note: 'gtOCTRegenMP client database table for version 3.3.5.12340'
 }
-Table gtRegenHPPerSpt {
+Table DBC.gtRegenHPPerSpt {
     Data float
     Note: 'gtRegenHPPerSpt client database table for version 3.3.5.12340'
 }
-Table gtRegenMPPerSpt {
+Table DBC.gtRegenMPPerSpt {
     Data float
     Note: 'gtRegenMPPerSpt client database table for version 3.3.5.12340'
 }
-Table HelmetGeosetVisData {
+Table DBC.HelmetGeosetVisData {
     ID int [primary key]
     HideGeoset int
     Note: 'HelmetGeosetVisData client database table for version 3.3.5.12340'
 }
-Table HolidayDescriptions {
+Table DBC.HolidayDescriptions {
     ID int [primary key]
     Description_lang locstring
     Note: 'HolidayDescriptions client database table for version 3.3.5.12340'
 }
-Table HolidayNames {
+Table DBC.HolidayNames {
     ID int [primary key]
     Name_lang locstring
     Note: 'HolidayNames client database table for version 3.3.5.12340'
 }
-Table Holidays {
+Table DBC.Holidays {
     ID int [primary key]
     Duration int
     Date int
     Region int
     Looping int
     CalendarFlags int
-    HolidayNameID int [ref: < HolidayNames.ID]
-    HolidayDescriptionID int [ref: < HolidayDescriptions.ID]
+    HolidayNameID int [ref: < DBC.HolidayNames.ID]
+    HolidayDescriptionID int [ref: < DBC.HolidayDescriptions.ID]
     TextureFileName string
     Priority int
     CalendarFilterType int
     Flags int
     Note: 'Holidays client database table for version 3.3.5.12340'
 }
-Table Item {
+Table DBC.Item {
     ID int [primary key]
-    ClassID int [ref: < ItemClass.ClassID]
+    ClassID int [ref: < DBC.ItemClass.ClassID]
     SubclassID int
     Sound_override_subclassID int
-    Material int [ref: < Material.ID]
+    Material int [ref: < DBC.Material.ID]
     DisplayInfoID int
     InventoryType int
     SheatheType int
     Note: 'Item client database table for version 3.3.5.12340'
 }
-Table ItemBagFamily {
+Table DBC.ItemBagFamily {
     ID int [primary key]
     Name_lang locstring
     Note: 'ItemBagFamily client database table for version 3.3.5.12340'
 }
-Table ItemClass {
+Table DBC.ItemClass {
     ClassID int
     SubclassMapID int
     Flags int
     ClassName_lang locstring
     Note: 'ItemClass client database table for version 3.3.5.12340'
 }
-Table ItemCondExtCosts {
+Table DBC.ItemCondExtCosts {
     ID int [primary key]
     CondExtendedCost int
-    ItemExtendedCostEntry int [ref: < ItemExtendedCost.ID]
+    ItemExtendedCostEntry int [ref: < DBC.ItemExtendedCost.ID]
     ArenaSeason int
     Note: 'ItemCondExtCosts client database table for version 3.3.5.12340'
 }
-Table ItemDisplayInfo {
+Table DBC.ItemDisplayInfo {
     ID int [primary key]
     ModelName string
     ModelTexture string
     InventoryIcon string
     GeosetGroup int
     Flags int
-    SpellVisualID int [ref: < SpellVisual.ID]
+    SpellVisualID int [ref: < DBC.SpellVisual.ID]
     GroupSoundIndex int
     HelmetGeosetVisID int
     Texture string
     ItemVisual int
-    ParticleColorID int [ref: < ParticleColor.ID]
+    ParticleColorID int [ref: < DBC.ParticleColor.ID]
     Note: 'ItemDisplayInfo client database table for version 3.3.5.12340'
 }
-Table ItemExtendedCost {
+Table DBC.ItemExtendedCost {
     ID int [primary key]
     HonorPoints int
     ArenaPoints int
     ArenaBracket int
-    ItemID int [ref: < Item.ID]
+    ItemID int [ref: < DBC.Item.ID]
     ItemCount int
     RequiredArenaRating int
-    ItemPurchaseGroup int [ref: < ItemPurchaseGroup.ID]
+    ItemPurchaseGroup int [ref: < DBC.ItemPurchaseGroup.ID]
     Note: 'ItemExtendedCost client database table for version 3.3.5.12340'
 }
-Table ItemGroupSounds {
+Table DBC.ItemGroupSounds {
     ID int [primary key]
     Sound int
     Note: 'ItemGroupSounds client database table for version 3.3.5.12340'
 }
-Table ItemLimitCategory {
+Table DBC.ItemLimitCategory {
     ID int [primary key]
     Name_lang locstring
     Quantity int
     Flags int
     Note: 'ItemLimitCategory client database table for version 3.3.5.12340'
 }
-Table ItemPetFood {
+Table DBC.ItemPetFood {
     ID int [primary key]
     Name_lang locstring
     Note: 'ItemPetFood client database table for version 3.3.5.12340'
 }
-Table ItemPurchaseGroup {
+Table DBC.ItemPurchaseGroup {
     ID int [primary key]
-    ItemID int [ref: < Item.ID]
+    ItemID int [ref: < DBC.Item.ID]
     Name_lang locstring
     Note: 'ItemPurchaseGroup client database table for version 3.3.5.12340'
 }
-Table ItemRandomProperties {
+Table DBC.ItemRandomProperties {
     ID int [primary key]
     Name string
-    Enchantment int [ref: < SpellItemEnchantment.ID]
+    Enchantment int [ref: < DBC.SpellItemEnchantment.ID]
     Name_lang locstring
     Note: 'ItemRandomProperties client database table for version 3.3.5.12340'
 }
-Table ItemRandomSuffix {
+Table DBC.ItemRandomSuffix {
     ID int [primary key]
     Name_lang locstring
     InternalName string
-    Enchantment int [ref: < SpellItemEnchantment.ID]
+    Enchantment int [ref: < DBC.SpellItemEnchantment.ID]
     AllocationPct int
     Note: 'ItemRandomSuffix client database table for version 3.3.5.12340'
 }
-Table ItemSet {
+Table DBC.ItemSet {
     ID int [primary key]
     Name_lang locstring
-    ItemID int [ref: < Item.ID]
-    SetSpellID int [ref: < Spell.ID]
+    ItemID int [ref: < DBC.Item.ID]
+    SetSpellID int [ref: < DBC.Spell.ID]
     SetThreshold int
-    RequiredSkill int [ref: < SkillLine.ID]
+    RequiredSkill int [ref: < DBC.SkillLine.ID]
     RequiredSkillRank int
     Note: 'ItemSet client database table for version 3.3.5.12340'
 }
-Table ItemSubClass {
-    ClassID int [ref: < ItemClass.ClassID]
+Table DBC.ItemSubClass {
+    ClassID int [ref: < DBC.ItemClass.ClassID]
     SubClassID int
     PrerequisiteProficiency int
     PostrequisiteProficiency int
@@ -939,34 +939,34 @@ Table ItemSubClass {
     VerboseName_lang locstring
     Note: 'ItemSubClass client database table for version 3.3.5.12340'
 }
-Table ItemSubClassMask {
-    ClassID int [ref: < ItemClass.ClassID]
+Table DBC.ItemSubClassMask {
+    ClassID int [ref: < DBC.ItemClass.ClassID]
     Mask int
     Name_lang locstring
     Note: 'ItemSubClassMask client database table for version 3.3.5.12340'
 }
-Table ItemVisualEffects {
+Table DBC.ItemVisualEffects {
     ID int [primary key]
     Model string
     Note: 'ItemVisualEffects client database table for version 3.3.5.12340'
 }
-Table ItemVisuals {
+Table DBC.ItemVisuals {
     ID int [primary key]
     Slot int
     Note: 'ItemVisuals client database table for version 3.3.5.12340'
 }
-Table Languages {
+Table DBC.Languages {
     ID int [primary key]
     Name_lang locstring
     Note: 'Languages client database table for version 3.3.5.12340'
 }
-Table LanguageWords {
+Table DBC.LanguageWords {
     ID int [primary key]
-    LanguageID int [ref: < Languages.ID]
+    LanguageID int [ref: < DBC.Languages.ID]
     Word string
     Note: 'LanguageWords client database table for version 3.3.5.12340'
 }
-Table LFGDungeonExpansion {
+Table DBC.LFGDungeonExpansion {
     ID int [primary key]
     Lfg_ID int
     Expansion_level int
@@ -977,7 +977,7 @@ Table LFGDungeonExpansion {
     Target_level_max int
     Note: 'LFGDungeonExpansion client database table for version 3.3.5.12340'
 }
-Table LFGDungeonGroup {
+Table DBC.LFGDungeonGroup {
     ID int [primary key]
     Name_lang locstring
     Order_index int
@@ -985,7 +985,7 @@ Table LFGDungeonGroup {
     TypeID int
     Note: 'LFGDungeonGroup client database table for version 3.3.5.12340'
 }
-Table LFGDungeons {
+Table DBC.LFGDungeons {
     ID int [primary key]
     Name_lang locstring
     MinLevel int
@@ -993,11 +993,11 @@ Table LFGDungeons {
     Target_level int
     Target_level_min int
     Target_level_max int
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     Difficulty int
     Flags int
     TypeID int
-    Faction int [ref: < Faction.ID]
+    Faction int [ref: < DBC.Faction.ID]
     TextureFilename string
     ExpansionLevel int
     Order_index int
@@ -1005,33 +1005,33 @@ Table LFGDungeons {
     Description_lang locstring
     Note: 'LFGDungeons client database table for version 3.3.5.12340'
 }
-Table Light {
+Table DBC.Light {
     ID int [primary key]
-    ContinentID int [ref: < Map.ID]
+    ContinentID int [ref: < DBC.Map.ID]
     GameCoords float
     GameFalloffStart float
     GameFalloffEnd float
-    LightParamsID int [ref: < LightParams.ID]
+    LightParamsID int [ref: < DBC.LightParams.ID]
     Note: 'Light client database table for version 3.3.5.12340'
 }
-Table LightFloatBand {
+Table DBC.LightFloatBand {
     ID int [primary key]
     Num int
     Time int
     Data float
     Note: 'LightFloatBand client database table for version 3.3.5.12340'
 }
-Table LightIntBand {
+Table DBC.LightIntBand {
     ID int [primary key]
     Num int
     Time int
     Data int
     Note: 'LightIntBand client database table for version 3.3.5.12340'
 }
-Table LightParams {
+Table DBC.LightParams {
     ID int [primary key]
     HighlightSky int
-    LightSkyboxID int [ref: < LightSkybox.ID]
+    LightSkyboxID int [ref: < DBC.LightSkybox.ID]
     Glow float
     WaterShallowAlpha float
     WaterDeepAlpha float
@@ -1040,56 +1040,56 @@ Table LightParams {
     Flags int
     Note: 'LightParams client database table for version 3.3.5.12340'
 }
-Table LightSkybox {
+Table DBC.LightSkybox {
     ID int [primary key]
     Name string
     Flags int
     Note: 'LightSkybox client database table for version 3.3.5.12340'
 }
-Table LiquidMaterial {
+Table DBC.LiquidMaterial {
     ID int [primary key]
     LVF int
     Flags int
     Note: 'LiquidMaterial client database table for version 3.3.5.12340'
 }
-Table LiquidType {
+Table DBC.LiquidType {
     ID int [primary key]
     Name string
     Flags int
     SoundBank int
-    SoundID int [ref: < SoundEntries.ID]
-    SpellID int [ref: < Spell.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
+    SpellID int [ref: < DBC.Spell.ID]
     MaxDarkenDepth float
     FogDarkenIntensity float
     AmbDarkenIntensity float
     DirDarkenIntensity float
-    LightID int [ref: < Light.ID]
+    LightID int [ref: < DBC.Light.ID]
     ParticleScale float
     ParticleMovement int
     ParticleTexSlots int
-    MaterialID int [ref: < LiquidMaterial.ID]
+    MaterialID int [ref: < DBC.LiquidMaterial.ID]
     Texture string
     Color int
     Float float
     Int int
     Note: 'LiquidType client database table for version 3.3.5.12340'
 }
-Table LoadingScreens {
+Table DBC.LoadingScreens {
     ID int [primary key]
     Name string
     FileName string
     HasWideScreen int
     Note: 'LoadingScreens client database table for version 3.3.5.12340'
 }
-Table LoadingScreenTaxiSplines {
+Table DBC.LoadingScreenTaxiSplines {
     ID int [primary key]
-    PathID int [ref: < TaxiPath.ID]
+    PathID int [ref: < DBC.TaxiPath.ID]
     Locx float
     Locy float
     LegIndex int
     Note: 'LoadingScreenTaxiSplines client database table for version 3.3.5.12340'
 }
-Table Lock {
+Table DBC.Lock {
     ID int [primary key]
     Type int
     Index int
@@ -1097,7 +1097,7 @@ Table Lock {
     Action int
     Note: 'Lock client database table for version 3.3.5.12340'
 }
-Table LockType {
+Table DBC.LockType {
     ID int [primary key]
     Name_lang locstring
     ResourceName_lang locstring
@@ -1105,25 +1105,25 @@ Table LockType {
     CursorName string
     Note: 'LockType client database table for version 3.3.5.12340'
 }
-Table MailTemplate {
+Table DBC.MailTemplate {
     ID int [primary key]
     Subject_lang locstring
     Body_lang locstring
     Note: 'MailTemplate client database table for version 3.3.5.12340'
 }
-Table Map {
+Table DBC.Map {
     ID int [primary key]
     Directory string
     InstanceType int
     Flags int
     PVP int
     MapName_lang locstring
-    AreaTableID int [ref: < AreaTable.ID]
+    AreaTableID int [ref: < DBC.AreaTable.ID]
     MapDescription0_lang locstring
     MapDescription1_lang locstring
-    LoadingScreenID int [ref: < LoadingScreens.ID]
+    LoadingScreenID int [ref: < DBC.LoadingScreens.ID]
     MinimapIconScale float
-    CorpseMapID int [ref: < Map.ID]
+    CorpseMapID int [ref: < DBC.Map.ID]
     Corpse float
     TimeOfDayOverride int
     ExpansionID int
@@ -1131,9 +1131,9 @@ Table Map {
     MaxPlayers int
     Note: 'Map client database table for version 3.3.5.12340'
 }
-Table MapDifficulty {
+Table DBC.MapDifficulty {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     Difficulty int
     Message_lang locstring
     RaidDuration int
@@ -1141,74 +1141,74 @@ Table MapDifficulty {
     Difficultystring string
     Note: 'MapDifficulty client database table for version 3.3.5.12340'
 }
-Table Material {
+Table DBC.Material {
     ID int [primary key]
     Flags int
-    FoleySoundID int [ref: < SoundEntries.ID]
-    SheatheSoundID int [ref: < SoundEntries.ID]
-    UnsheatheSoundID int [ref: < SoundEntries.ID]
+    FoleySoundID int
+    SheatheSoundID int
+    UnsheatheSoundID int
     Note: 'Material client database table for version 3.3.5.12340'
 }
-Table Movie {
+Table DBC.Movie {
     ID int [primary key]
     Filename string
     Volume int
     Note: 'Movie client database table for version 3.3.5.12340'
 }
-Table MovieFileData {
-    FileDataID int [primary key, ref: < FileData.ID]
+Table DBC.MovieFileData {
+    FileDataID int [primary key, ref: < DBC.FileData.ID]
     Resolution int
     Note: 'MovieFileData client database table for version 3.3.5.12340'
 }
-Table MovieVariation {
+Table DBC.MovieVariation {
     ID int [primary key]
-    MovieID int [ref: < Movie.ID]
-    FileDataID int [ref: < FileData.ID]
+    MovieID int [ref: < DBC.Movie.ID]
+    FileDataID int [ref: < DBC.FileData.ID]
     Note: 'MovieVariation client database table for version 3.3.5.12340'
 }
-Table NameGen {
+Table DBC.NameGen {
     ID int [primary key]
     Name string
-    RaceID int [ref: < ChrRaces.ID]
+    RaceID int [ref: < DBC.ChrRaces.ID]
     Sex int
     Note: 'NameGen client database table for version 3.3.5.12340'
 }
-Table NamesProfanity {
+Table DBC.NamesProfanity {
     ID int [primary key]
     Name string
     Language int
     Note: 'NamesProfanity client database table for version 3.3.5.12340'
 }
-Table NamesReserved {
+Table DBC.NamesReserved {
     ID int [primary key]
     Name string
     Language int
     Note: 'NamesReserved client database table for version 3.3.5.12340'
 }
-Table NPCSounds {
+Table DBC.NPCSounds {
     ID int [primary key]
-    SoundID int [ref: < SoundEntries.ID]
+    SoundID int
     Note: 'NPCSounds client database table for version 3.3.5.12340'
 }
-Table ObjectEffect {
+Table DBC.ObjectEffect {
     ID int [primary key]
     Name string
-    ObjectEffectGroupID int [ref: < ObjectEffectGroup.ID]
+    ObjectEffectGroupID int [ref: < DBC.ObjectEffectGroup.ID]
     TriggerType int
     EventType int
     EffectRecType int
-    EffectRecID int [ref: < SoundEntries.ID]
+    EffectRecID int
     Attachment int
     Offset float
-    ObjectEffectModifierID int [ref: < ObjectEffectModifier.ID]
+    ObjectEffectModifierID int [ref: < DBC.ObjectEffectModifier.ID]
     Note: 'ObjectEffect client database table for version 3.3.5.12340'
 }
-Table ObjectEffectGroup {
+Table DBC.ObjectEffectGroup {
     ID int [primary key]
     Name string
     Note: 'ObjectEffectGroup client database table for version 3.3.5.12340'
 }
-Table ObjectEffectModifier {
+Table DBC.ObjectEffectModifier {
     ID int [primary key]
     InputType int
     MapType int
@@ -1216,63 +1216,63 @@ Table ObjectEffectModifier {
     Param float
     Note: 'ObjectEffectModifier client database table for version 3.3.5.12340'
 }
-Table ObjectEffectPackage {
+Table DBC.ObjectEffectPackage {
     ID int [primary key]
     Name string
     Note: 'ObjectEffectPackage client database table for version 3.3.5.12340'
 }
-Table ObjectEffectPackageElem {
+Table DBC.ObjectEffectPackageElem {
     ID int [primary key]
-    ObjectEffectPackageID int [ref: < ObjectEffectPackage.ID]
-    ObjectEffectGroupID int [ref: < ObjectEffectGroup.ID]
+    ObjectEffectPackageID int [ref: < DBC.ObjectEffectPackage.ID]
+    ObjectEffectGroupID int [ref: < DBC.ObjectEffectGroup.ID]
     StateType int
     Note: 'ObjectEffectPackageElem client database table for version 3.3.5.12340'
 }
-Table OverrideSpellData {
+Table DBC.OverrideSpellData {
     ID int [primary key]
-    Spells int [ref: < Spell.ID]
+    Spells int [ref: < DBC.Spell.ID]
     Flags int
     Note: 'OverrideSpellData client database table for version 3.3.5.12340'
 }
-Table Package {
+Table DBC.Package {
     ID int [primary key]
     Icon string
     Cost int
     Name_lang locstring
     Note: 'Package client database table for version 3.3.5.12340'
 }
-Table PageTextMaterial {
+Table DBC.PageTextMaterial {
     ID int [primary key]
     Name string
     Note: 'PageTextMaterial client database table for version 3.3.5.12340'
 }
-Table PaperDollItemFrame {
+Table DBC.PaperDollItemFrame {
     ItemButtonName string
     SlotIcon string
     SlotNumber int
     Note: 'PaperDollItemFrame client database table for version 3.3.5.12340'
 }
-Table ParticleColor {
+Table DBC.ParticleColor {
     ID int [primary key]
     Start int
     MID int
     End int
     Note: 'ParticleColor client database table for version 3.3.5.12340'
 }
-Table PetitionType {
+Table DBC.PetitionType {
     ID int [primary key]
     Name string
     Type int
     Note: 'PetitionType client database table for version 3.3.5.12340'
 }
-Table PetPersonality {
+Table DBC.PetPersonality {
     ID int [primary key]
     Name_lang locstring
     HappinessThreshold int
     HappinessDamage float
     Note: 'PetPersonality client database table for version 3.3.5.12340'
 }
-Table PowerDisplay {
+Table DBC.PowerDisplay {
     ID int [primary key]
     ActualType int
     GlobalStringBaseTag string
@@ -1281,57 +1281,57 @@ Table PowerDisplay {
     Blue int
     Note: 'PowerDisplay client database table for version 3.3.5.12340'
 }
-Table PVPDifficulty {
+Table DBC.PVPDifficulty {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     RangeIndex int
     MinLevel int
     MaxLevel int
     Difficulty int
     Note: 'PVPDifficulty client database table for version 3.3.5.12340'
 }
-Table QuestFactionReward {
+Table DBC.QuestFactionReward {
     ID int [primary key]
     Difficulty int
     Note: 'QuestFactionReward client database table for version 3.3.5.12340'
 }
-Table QuestInfo {
+Table DBC.QuestInfo {
     ID int [primary key]
     InfoName_lang locstring
     Note: 'QuestInfo client database table for version 3.3.5.12340'
 }
-Table QuestSort {
+Table DBC.QuestSort {
     ID int [primary key]
     SortName_lang locstring
     Note: 'QuestSort client database table for version 3.3.5.12340'
 }
-Table QuestXP {
+Table DBC.QuestXP {
     ID int [primary key]
     Difficulty int
     Note: 'QuestXP client database table for version 3.3.5.12340'
 }
-Table RandPropPoints {
+Table DBC.RandPropPoints {
     ID int [primary key]
     Epic int
     Superior int
     Good int
     Note: 'RandPropPoints client database table for version 3.3.5.12340'
 }
-Table Resistances {
+Table DBC.Resistances {
     ID int [primary key]
     Flags int
-    FizzleSoundID int [ref: < SoundEntries.ID]
+    FizzleSoundID int
     Name_lang locstring
     Note: 'Resistances client database table for version 3.3.5.12340'
 }
-Table ScalingStatDistribution {
+Table DBC.ScalingStatDistribution {
     ID int [primary key]
     StatID int
     Bonus int
     Maxlevel int
     Note: 'ScalingStatDistribution client database table for version 3.3.5.12340'
 }
-Table ScalingStatValues {
+Table DBC.ScalingStatValues {
     ID int [primary key]
     Charlevel int
     ShoulderBudget int
@@ -1358,102 +1358,102 @@ Table ScalingStatValues {
     PlateChestArmor int
     Note: 'ScalingStatValues client database table for version 3.3.5.12340'
 }
-Table ScreenEffect {
+Table DBC.ScreenEffect {
     ID int [primary key]
     Name string
     Effect int
     Param int
-    LightParamsID int [ref: < LightParams.ID]
-    SoundAmbienceID int [ref: < SoundAmbience.ID]
-    ZoneMusicID int [ref: < ZoneMusic.ID]
+    LightParamsID int [ref: < DBC.LightParams.ID]
+    SoundAmbienceID int [ref: < DBC.SoundAmbience.ID]
+    ZoneMusicID int [ref: < DBC.ZoneMusic.ID]
     Note: 'ScreenEffect client database table for version 3.3.5.12340'
 }
-Table ServerMessages {
+Table DBC.ServerMessages {
     ID int [primary key]
     Text_lang locstring
     Note: 'ServerMessages client database table for version 3.3.5.12340'
 }
-Table SheatheSoundLookups {
+Table DBC.SheatheSoundLookups {
     ID int [primary key]
-    ClassID int [ref: < ItemSubClass.ClassID]
-    SubclassID int [ref: < ItemSubClass.SubClassID]
-    Material int [ref: < Material.ID]
+    ClassID int [ref: < DBC.ItemSubClass.ClassID]
+    SubclassID int [ref: < DBC.ItemSubClass.SubClassID]
+    Material int [ref: < DBC.Material.ID]
     CheckMaterial int
     SheatheSound int
     UnsheatheSound int
     Note: 'SheatheSoundLookups client database table for version 3.3.5.12340'
 }
-Table SkillCostsData {
+Table DBC.SkillCostsData {
     ID int [primary key]
     SkillCostsID int
     Cost int
     Note: 'SkillCostsData client database table for version 3.3.5.12340'
 }
-Table SkillLine {
+Table DBC.SkillLine {
     ID int [primary key]
-    CategoryID int [ref: < SkillLineCategory.ID]
+    CategoryID int [ref: < DBC.SkillLineCategory.ID]
     SkillCostsID int
     DisplayName_lang locstring
     Description_lang locstring
-    SpellIconID int [ref: < SpellIcon.ID]
+    SpellIconID int [ref: < DBC.SpellIcon.ID]
     AlternateVerb_lang locstring
     CanLink int
     Note: 'SkillLine client database table for version 3.3.5.12340'
 }
-Table SkillLineAbility {
+Table DBC.SkillLineAbility {
     ID int [primary key]
-    SkillLine int [ref: < SkillLine.ID]
-    Spell int [ref: < Spell.ID]
+    SkillLine int [ref: < DBC.SkillLine.ID]
+    Spell int [ref: < DBC.Spell.ID]
     RaceMask int
     ClassMask int
     ExcludeRace int
     ExcludeClass int
     MinSkillLineRank int
-    SupercededBySpell int [ref: < Spell.ID]
+    SupercededBySpell int [ref: < DBC.Spell.ID]
     AcquireMethod int
     TrivialSkillLineRankHigh int
     TrivialSkillLineRankLow int
     CharacterPoints int
     Note: 'SkillLineAbility client database table for version 3.3.5.12340'
 }
-Table SkillLineCategory {
+Table DBC.SkillLineCategory {
     ID int [primary key]
     Name_lang locstring
     SortIndex int
     Note: 'SkillLineCategory client database table for version 3.3.5.12340'
 }
-Table SkillRaceClassInfo {
+Table DBC.SkillRaceClassInfo {
     ID int [primary key]
-    SkillID int [ref: < SkillLine.ID]
+    SkillID int [ref: < DBC.SkillLine.ID]
     RaceMask int
     ClassMask int
     Flags int
     MinLevel int
-    SkillTierID int [ref: < SkillTiers.ID]
+    SkillTierID int [ref: < DBC.SkillTiers.ID]
     SkillCostIndex int
     Note: 'SkillRaceClassInfo client database table for version 3.3.5.12340'
 }
-Table SkillTiers {
+Table DBC.SkillTiers {
     ID int [primary key]
     Cost int
     Value int
     Note: 'SkillTiers client database table for version 3.3.5.12340'
 }
-Table SoundAmbience {
+Table DBC.SoundAmbience {
     ID int [primary key]
-    AmbienceID int [ref: < SoundEntries.ID]
+    AmbienceID int
     Note: 'SoundAmbience client database table for version 3.3.5.12340'
 }
-Table SoundEmitters {
+Table DBC.SoundEmitters {
     ID int [primary key]
     Position float
     Direction float
-    SoundEntryAdvancedID int [ref: < SoundEntriesAdvanced.ID]
-    MapID int [ref: < Map.ID]
+    SoundEntryAdvancedID int [ref: < DBC.SoundEntriesAdvanced.ID]
+    MapID int [ref: < DBC.Map.ID]
     Name string
     Note: 'SoundEmitters client database table for version 3.3.5.12340'
 }
-Table SoundEntries {
+Table DBC.SoundEntries {
     ID int [primary key]
     SoundType int
     Name string
@@ -1465,12 +1465,12 @@ Table SoundEntries {
     MinDistance float
     DistanceCutoff float
     EAXDef int
-    SoundEntriesAdvancedID int [ref: < SoundEntriesAdvanced.ID]
+    SoundEntriesAdvancedID int [ref: < DBC.SoundEntriesAdvanced.ID]
     Note: 'SoundEntries client database table for version 3.3.5.12340'
 }
-Table SoundEntriesAdvanced {
+Table DBC.SoundEntriesAdvanced {
     ID int [primary key]
-    SoundEntryID int [ref: < SoundEntries.ID]
+    SoundEntryID int [ref: < DBC.SoundEntries.ID]
     InnerRadius2D float
     TimeA int
     TimeB int
@@ -1495,20 +1495,20 @@ Table SoundEntriesAdvanced {
     Name string
     Note: 'SoundEntriesAdvanced client database table for version 3.3.5.12340'
 }
-Table SoundFilter {
+Table DBC.SoundFilter {
     ID int [primary key]
     Name string
     Note: 'SoundFilter client database table for version 3.3.5.12340'
 }
-Table SoundFilterElem {
+Table DBC.SoundFilterElem {
     ID int [primary key]
-    SoundFilterID int [ref: < SoundFilter.ID]
+    SoundFilterID int [ref: < DBC.SoundFilter.ID]
     OrderIndex int
     FilterType int
     Params float
     Note: 'SoundFilterElem client database table for version 3.3.5.12340'
 }
-Table SoundProviderPreferences {
+Table DBC.SoundProviderPreferences {
     ID int [primary key]
     Description string
     Flags int
@@ -1535,7 +1535,7 @@ Table SoundProviderPreferences {
     EAX3LFReference float
     Note: 'SoundProviderPreferences client database table for version 3.3.5.12340'
 }
-Table SoundSamplePreferences {
+Table DBC.SoundSamplePreferences {
     ID int [primary key]
     Field_0_6_0_3592_001 int
     Field_0_6_0_3592_002 int
@@ -1555,23 +1555,23 @@ Table SoundSamplePreferences {
     Field_0_6_0_3592_016 int
     Note: 'SoundSamplePreferences client database table for version 3.3.5.12340'
 }
-Table SoundWaterType {
+Table DBC.SoundWaterType {
     ID int [primary key]
     SoundType int
     SoundSubtype int
-    SoundID int [ref: < SoundEntries.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
     Note: 'SoundWaterType client database table for version 3.3.5.12340'
 }
-Table SpamMessages {
+Table DBC.SpamMessages {
     ID int [primary key]
     Text string
     Note: 'SpamMessages client database table for version 3.3.5.12340'
 }
-Table Spell {
+Table DBC.Spell {
     ID int [primary key]
-    Category int [ref: < SpellCategory.ID]
-    DispelType int [ref: < SpellDispelType.ID]
-    Mechanic int [ref: < SpellMechanic.ID]
+    Category int [ref: < DBC.SpellCategory.ID]
+    DispelType int [ref: < DBC.SpellDispelType.ID]
+    Mechanic int [ref: < DBC.SpellMechanic.ID]
     Attributes int
     AttributesEx int
     AttributesExB int
@@ -1584,7 +1584,7 @@ Table Spell {
     ShapeshiftExclude int
     Targets int
     TargetCreatureType int
-    RequiresSpellFocus int [ref: < SpellFocusObject.ID]
+    RequiresSpellFocus int [ref: < DBC.SpellFocusObject.ID]
     FacingCasterFlags int
     CasterAuraState int
     TargetAuraState int
@@ -1594,7 +1594,7 @@ Table Spell {
     TargetAuraSpell int
     ExcludeCasterAuraSpell int
     ExcludeTargetAuraSpell int
-    CastingTimeIndex int [ref: < SpellCastTimes.ID]
+    CastingTimeIndex int [ref: < DBC.SpellCastTimes.ID]
     RecoveryTime int
     CategoryRecoveryTime int
     InterruptFlags int
@@ -1606,7 +1606,7 @@ Table Spell {
     MaxLevel int
     BaseLevel int
     SpellLevel int
-    DurationIndex int [ref: < SpellDuration.ID]
+    DurationIndex int [ref: < DBC.SpellDuration.ID]
     PowerType int
     ManaCost int
     ManaCostPerLevel int
@@ -1617,7 +1617,7 @@ Table Spell {
     ModalNextSpell int
     CumulativeAura int
     Totem int
-    Reagent int [ref: < Item.ID]
+    Reagent int [ref: < DBC.Item.ID]
     ReagentCount int
     EquippedItemClass int
     EquippedItemSubclass int
@@ -1626,10 +1626,10 @@ Table Spell {
     EffectDieSides int
     EffectRealPointsPerLevel float
     EffectBasePoints int
-    EffectMechanic int [ref: < SpellMechanic.ID]
+    EffectMechanic int [ref: < DBC.SpellMechanic.ID]
     ImplicitTargetA int
     ImplicitTargetB int
-    EffectRadiusIndex int [ref: < SpellRadius.ID]
+    EffectRadiusIndex int [ref: < DBC.SpellRadius.ID]
     EffectAura int
     EffectAuraPeriod int
     EffectAmplitude float
@@ -1637,14 +1637,14 @@ Table Spell {
     EffectItemType int
     EffectMiscValue int
     EffectMiscValueB int
-    EffectTriggerSpell int [ref: < Spell.ID]
+    EffectTriggerSpell int [ref: < DBC.Spell.ID]
     EffectPointsPerCombo float
     EffectSpellClassMaskA int
     EffectSpellClassMaskB int
     EffectSpellClassMaskC int
-    SpellVisualID int [ref: < SpellVisual.ID]
-    SpellIconID int [ref: < SpellIcon.ID]
-    ActiveIconID int [ref: < SpellIcon.ID]
+    SpellVisualID int [ref: < DBC.SpellVisual.ID]
+    SpellIconID int [ref: < DBC.SpellIcon.ID]
+    ActiveIconID int [ref: < DBC.SpellIcon.ID]
     SpellPriority int
     Name_lang locstring
     NameSubtext_lang locstring
@@ -1661,33 +1661,33 @@ Table Spell {
     PreventionType int
     StanceBarOrder int
     EffectChainAmplitude float
-    MinFactionID int [ref: < Faction.ID]
+    MinFactionID int [ref: < DBC.Faction.ID]
     MinReputation int
     RequiredAuraVision int
-    RequiredTotemCategoryID int [ref: < TotemCategory.ID]
-    RequiredAreasID int [ref: < AreaGroup.ID]
+    RequiredTotemCategoryID int [ref: < DBC.TotemCategory.ID]
+    RequiredAreasID int [ref: < DBC.AreaGroup.ID]
     SchoolMask int
-    RuneCostID int [ref: < SpellRuneCost.ID]
-    SpellMissileID int [ref: < SpellMissile.ID]
-    PowerDisplayID int [ref: < PowerDisplay.ID]
+    RuneCostID int [ref: < DBC.SpellRuneCost.ID]
+    SpellMissileID int [ref: < DBC.SpellMissile.ID]
+    PowerDisplayID int [ref: < DBC.PowerDisplay.ID]
     EffectBonusCoefficient float
-    DescriptionVariablesID int [ref: < SpellDescriptionVariables.ID]
+    DescriptionVariablesID int [ref: < DBC.SpellDescriptionVariables.ID]
     Difficulty int
     Note: 'Spell client database table for version 3.3.5.12340'
 }
-Table SpellCastTimes {
+Table DBC.SpellCastTimes {
     ID int [primary key]
     Base int
     PerLevel int
     Minimum int
     Note: 'SpellCastTimes client database table for version 3.3.5.12340'
 }
-Table SpellCategory {
+Table DBC.SpellCategory {
     ID int [primary key]
     Flags int
     Note: 'SpellCategory client database table for version 3.3.5.12340'
 }
-Table SpellChainEffects {
+Table DBC.SpellChainEffects {
     ID int [primary key]
     AvgSegLen float
     Width float
@@ -1738,17 +1738,17 @@ Table SpellChainEffects {
     WavePhase float
     Note: 'SpellChainEffects client database table for version 3.3.5.12340'
 }
-Table SpellDescriptionVariables {
+Table DBC.SpellDescriptionVariables {
     ID int [primary key]
     Variables string
     Note: 'SpellDescriptionVariables client database table for version 3.3.5.12340'
 }
-Table SpellDifficulty {
+Table DBC.SpellDifficulty {
     ID int [primary key]
-    DifficultySpellID int [ref: < Spell.ID]
+    DifficultySpellID int [ref: < DBC.Spell.ID]
     Note: 'SpellDifficulty client database table for version 3.3.5.12340'
 }
-Table SpellDispelType {
+Table DBC.SpellDispelType {
     ID int [primary key]
     Name_lang locstring
     Mask int
@@ -1756,46 +1756,46 @@ Table SpellDispelType {
     InternalName string
     Note: 'SpellDispelType client database table for version 3.3.5.12340'
 }
-Table SpellDuration {
+Table DBC.SpellDuration {
     ID int [primary key]
     Duration int
     DurationPerLevel int
     MaxDuration int
     Note: 'SpellDuration client database table for version 3.3.5.12340'
 }
-Table SpellEffectCameraShakes {
+Table DBC.SpellEffectCameraShakes {
     ID int [primary key]
     CameraShake int
     Note: 'SpellEffectCameraShakes client database table for version 3.3.5.12340'
 }
-Table SpellFocusObject {
+Table DBC.SpellFocusObject {
     ID int [primary key]
     Name_lang locstring
     Note: 'SpellFocusObject client database table for version 3.3.5.12340'
 }
-Table SpellIcon {
+Table DBC.SpellIcon {
     ID int [primary key]
     TextureFilename string
     Note: 'SpellIcon client database table for version 3.3.5.12340'
 }
-Table SpellItemEnchantment {
+Table DBC.SpellItemEnchantment {
     ID int [primary key]
     Charges int
     Effect int
     EffectPointsMin int
     EffectPointsMax int
-    EffectArg int [ref: < Spell.ID]
+    EffectArg int [ref: < DBC.Spell.ID]
     Name_lang locstring
-    ItemVisual int [ref: < ItemVisuals.ID]
+    ItemVisual int [ref: < DBC.ItemVisuals.ID]
     Flags int
     Src_itemID int
-    Condition_ID int [ref: < SpellItemEnchantmentCondition.ID]
-    RequiredSkillID int [ref: < SkillLine.ID]
+    Condition_ID int [ref: < DBC.SpellItemEnchantmentCondition.ID]
+    RequiredSkillID int [ref: < DBC.SkillLine.ID]
     RequiredSkillRank int
     MinLevel int
     Note: 'SpellItemEnchantment client database table for version 3.3.5.12340'
 }
-Table SpellItemEnchantmentCondition {
+Table DBC.SpellItemEnchantmentCondition {
     ID int [primary key]
     Lt_operandType int
     Lt_operand int
@@ -1805,12 +1805,12 @@ Table SpellItemEnchantmentCondition {
     Logic int
     Note: 'SpellItemEnchantmentCondition client database table for version 3.3.5.12340'
 }
-Table SpellMechanic {
+Table DBC.SpellMechanic {
     ID int [primary key]
     StateName_lang locstring
     Note: 'SpellMechanic client database table for version 3.3.5.12340'
 }
-Table SpellMissile {
+Table DBC.SpellMissile {
     ID int [primary key]
     Flags int
     DefaultPitchMin float
@@ -1828,7 +1828,7 @@ Table SpellMissile {
     CollisionRadius float
     Note: 'SpellMissile client database table for version 3.3.5.12340'
 }
-Table SpellMissileMotion {
+Table DBC.SpellMissileMotion {
     ID int [primary key]
     Name string
     ScriptBody string
@@ -1836,14 +1836,14 @@ Table SpellMissileMotion {
     MissileCount int
     Note: 'SpellMissileMotion client database table for version 3.3.5.12340'
 }
-Table SpellRadius {
+Table DBC.SpellRadius {
     ID int [primary key]
     Radius float
     RadiusPerLevel float
     RadiusMax float
     Note: 'SpellRadius client database table for version 3.3.5.12340'
 }
-Table SpellRange {
+Table DBC.SpellRange {
     ID int [primary key]
     RangeMin float
     RangeMax float
@@ -1852,7 +1852,7 @@ Table SpellRange {
     DisplayNameShort_lang locstring
     Note: 'SpellRange client database table for version 3.3.5.12340'
 }
-Table SpellRuneCost {
+Table DBC.SpellRuneCost {
     ID int [primary key]
     Blood int
     Unholy int
@@ -1860,19 +1860,19 @@ Table SpellRuneCost {
     RunicPower int
     Note: 'SpellRuneCost client database table for version 3.3.5.12340'
 }
-Table SpellShapeshiftForm {
+Table DBC.SpellShapeshiftForm {
     ID int [primary key]
     BonusActionBar int
     Name_lang locstring
     Flags int
-    CreatureType int [ref: < CreatureType.ID]
-    AttackIconID int [ref: < SpellIcon.ID]
+    CreatureType int [ref: < DBC.CreatureType.ID]
+    AttackIconID int [ref: < DBC.SpellIcon.ID]
     CombatRoundTime int
-    CreatureDisplayID int [ref: < CreatureDisplayInfo.ID]
-    PresetSpellID int [ref: < Spell.ID]
+    CreatureDisplayID int [ref: < DBC.CreatureDisplayInfo.ID]
+    PresetSpellID int [ref: < DBC.Spell.ID]
     Note: 'SpellShapeshiftForm client database table for version 3.3.5.12340'
 }
-Table SpellVisual {
+Table DBC.SpellVisual {
     ID int [primary key]
     PrecastKit int
     CastKit int
@@ -1885,7 +1885,7 @@ Table SpellVisual {
     MissilePathType int
     MissileDestinationAttachment int
     MissileSound int
-    AnimEventSoundID int [ref: < SoundEntries.ID]
+    AnimEventSoundID int [ref: < DBC.SoundEntries.ID]
     Flags int
     CasterImpactKit int
     TargetImpactKit int
@@ -1895,7 +1895,7 @@ Table SpellVisual {
     MissileFollowGroundApproach int
     MissileFollowGroundFlags int
     MissileMotion int
-    MissileTargetingKit int [ref: < SpellVisualKit.ID]
+    MissileTargetingKit int [ref: < DBC.SpellVisualKit.ID]
     InstantAreaKit int
     ImpactAreaKit int
     PersistentAreaKit int
@@ -1903,7 +1903,7 @@ Table SpellVisual {
     MissileImpactOffset float
     Note: 'SpellVisual client database table for version 3.3.5.12340'
 }
-Table SpellVisualEffectName {
+Table DBC.SpellVisualEffectName {
     ID int [primary key]
     Name string
     FileName string
@@ -1913,10 +1913,10 @@ Table SpellVisualEffectName {
     MaxAllowedScale float
     Note: 'SpellVisualEffectName client database table for version 3.3.5.12340'
 }
-Table SpellVisualKit {
+Table DBC.SpellVisualKit {
     ID int [primary key]
-    StartAnimID int [ref: < AnimationData.ID]
-    AnimID int [ref: < AnimationData.ID]
+    StartAnimID int [ref: < DBC.AnimationData.ID]
+    AnimID int [ref: < DBC.AnimationData.ID]
     HeadEffect int
     ChestEffect int
     BaseEffect int
@@ -1927,8 +1927,8 @@ Table SpellVisualKit {
     RightWeaponEffect int
     SpecialEffect int
     WorldEffect int
-    SoundID int [ref: < SoundEntries.ID]
-    ShakeID int [ref: < SpellEffectCameraShakes.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
+    ShakeID int [ref: < DBC.SpellEffectCameraShakes.ID]
     CharProc int
     CharParamZero float
     CharParamOne float
@@ -1937,16 +1937,16 @@ Table SpellVisualKit {
     Flags int
     Note: 'SpellVisualKit client database table for version 3.3.5.12340'
 }
-Table SpellVisualKitAreaModel {
+Table DBC.SpellVisualKitAreaModel {
     ID int [primary key]
     Name string
     EnumID int
     Note: 'SpellVisualKitAreaModel client database table for version 3.3.5.12340'
 }
-Table SpellVisualKitModelAttach {
+Table DBC.SpellVisualKitModelAttach {
     ID int [primary key]
-    ParentSpellVisualKitID int [ref: < SpellVisualKit.ID]
-    SpellVisualEffectNameID int [ref: < SpellVisualEffectName.ID]
+    ParentSpellVisualKitID int [ref: < DBC.SpellVisualKit.ID]
+    SpellVisualEffectNameID int [ref: < DBC.SpellVisualEffectName.ID]
     AttachmentID int
     Offset float
     Yaw float
@@ -1954,61 +1954,61 @@ Table SpellVisualKitModelAttach {
     Roll float
     Note: 'SpellVisualKitModelAttach client database table for version 3.3.5.12340'
 }
-Table SpellVisualPrecastTransitions {
+Table DBC.SpellVisualPrecastTransitions {
     ID int [primary key]
     PrecastLoadAnimName string
     PrecastHoldAnimName string
     Note: 'SpellVisualPrecastTransitions client database table for version 3.3.5.12340'
 }
-Table StableSlotPrices {
+Table DBC.StableSlotPrices {
     ID int [primary key]
     Cost int
     Note: 'StableSlotPrices client database table for version 3.3.5.12340'
 }
-Table Startup_Strings {
+Table DBC.Startup_Strings {
     ID int [primary key]
     Name string
     Message_lang locstring
     Note: 'Startup_Strings client database table for version 3.3.5.12340'
 }
-Table Stationery {
+Table DBC.Stationery {
     ID int [primary key]
-    ItemID int [ref: < Item.ID]
+    ItemID int [ref: < DBC.Item.ID]
     Texture string
     Flags int
     Note: 'Stationery client database table for version 3.3.5.12340'
 }
-Table StringLookups {
+Table DBC.StringLookups {
     ID int [primary key]
     String string
     Note: 'StringLookups client database table for version 3.3.5.12340'
 }
-Table SummonProperties {
+Table DBC.SummonProperties {
     ID int [primary key]
     Control int
-    Faction int [ref: < FactionTemplate.ID]
+    Faction int [ref: < DBC.FactionTemplate.ID]
     Title int
     Slot int
     Flags int
     Note: 'SummonProperties client database table for version 3.3.5.12340'
 }
-Table Talent {
+Table DBC.Talent {
     ID int [primary key]
     TabID int
     TierID int
     ColumnIndex int
     SpellRank int
-    PrereqTalent int [ref: < Talent.ID]
+    PrereqTalent int [ref: < DBC.Talent.ID]
     PrereqRank int
     Flags int
-    RequiredSpellID int [ref: < Spell.ID]
+    RequiredSpellID int [ref: < DBC.Spell.ID]
     CategoryMask int
     Note: 'Talent client database table for version 3.3.5.12340'
 }
-Table TalentTab {
+Table DBC.TalentTab {
     ID int [primary key]
     Name_lang locstring
-    SpellIconID int [ref: < SpellIcon.ID]
+    SpellIconID int [ref: < DBC.SpellIcon.ID]
     RaceMask int
     ClassMask int
     CategoryEnumID int
@@ -2016,26 +2016,26 @@ Table TalentTab {
     BackgroundFile string
     Note: 'TalentTab client database table for version 3.3.5.12340'
 }
-Table TaxiNodes {
+Table DBC.TaxiNodes {
     ID int [primary key]
-    ContinentID int [ref: < Map.ID]
+    ContinentID int [ref: < DBC.Map.ID]
     Pos float
     Name_lang locstring
     MountCreatureID int
     Note: 'TaxiNodes client database table for version 3.3.5.12340'
 }
-Table TaxiPath {
+Table DBC.TaxiPath {
     ID int [primary key]
-    FromTaxiNode int [ref: < TaxiNodes.ID]
-    ToTaxiNode int [ref: < TaxiNodes.ID]
+    FromTaxiNode int [ref: < DBC.TaxiNodes.ID]
+    ToTaxiNode int [ref: < DBC.TaxiNodes.ID]
     Cost int
     Note: 'TaxiPath client database table for version 3.3.5.12340'
 }
-Table TaxiPathNode {
+Table DBC.TaxiPathNode {
     ID int [primary key]
-    PathID int [ref: < TaxiPath.ID]
+    PathID int [ref: < DBC.TaxiPath.ID]
     NodeIndex int
-    ContinentID int [ref: < Map.ID]
+    ContinentID int [ref: < DBC.Map.ID]
     Loc float
     Flags int
     Delay int
@@ -2043,32 +2043,32 @@ Table TaxiPathNode {
     DepartureEventID int
     Note: 'TaxiPathNode client database table for version 3.3.5.12340'
 }
-Table TeamContributionPoints {
+Table DBC.TeamContributionPoints {
     ID int [primary key]
     Data float
     Note: 'TeamContributionPoints client database table for version 3.3.5.12340'
 }
-Table TerrainType {
+Table DBC.TerrainType {
     TerrainID int
     TerrainDesc string
     FootstepSprayRun int
     FootstepSprayWalk int
-    SoundID int [ref: < TerrainTypeSounds.ID]
+    SoundID int [ref: < DBC.TerrainTypeSounds.ID]
     Flags int
     Note: 'TerrainType client database table for version 3.3.5.12340'
 }
-Table TerrainTypeSounds {
+Table DBC.TerrainTypeSounds {
     ID int [primary key]
     Note: 'TerrainTypeSounds client database table for version 3.3.5.12340'
 }
-Table TotemCategory {
+Table DBC.TotemCategory {
     ID int [primary key]
     Name_lang locstring
     TotemCategoryType int
     TotemCategoryMask int
     Note: 'TotemCategory client database table for version 3.3.5.12340'
 }
-Table TransportAnimation {
+Table DBC.TransportAnimation {
     ID int [primary key]
     TransportID int
     TimeIndex int
@@ -2076,7 +2076,7 @@ Table TransportAnimation {
     SequenceID int
     Note: 'TransportAnimation client database table for version 3.3.5.12340'
 }
-Table TransportPhysics {
+Table DBC.TransportPhysics {
     ID int [primary key]
     WaveAmp float
     WaveTimeScale float
@@ -2090,39 +2090,39 @@ Table TransportPhysics {
     SpeedDamp float
     Note: 'TransportPhysics client database table for version 3.3.5.12340'
 }
-Table TransportRotation {
+Table DBC.TransportRotation {
     ID int [primary key]
     GameObjectsID int
     TimeIndex int
     Rot float
     Note: 'TransportRotation client database table for version 3.3.5.12340'
 }
-Table UISoundLookups {
+Table DBC.UISoundLookups {
     ID int [primary key]
-    SoundID int [ref: < SoundEntries.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
     SoundName string
     Note: 'UISoundLookups client database table for version 3.3.5.12340'
 }
-Table UnitBlood {
+Table DBC.UnitBlood {
     ID int [primary key]
     CombatBloodSpurtFront int
     CombatBloodSpurtBack int
     GroundBlood string
     Note: 'UnitBlood client database table for version 3.3.5.12340'
 }
-Table UnitBloodLevels {
+Table DBC.UnitBloodLevels {
     ID int [primary key]
     Violencelevel int
     Note: 'UnitBloodLevels client database table for version 3.3.5.12340'
 }
-Table Vehicle {
+Table DBC.Vehicle {
     ID int [primary key]
     Flags int
     TurnSpeed float
     PitchSpeed float
     PitchMin float
     PitchMax float
-    SeatID int [ref: < VehicleSeat.ID]
+    SeatID int [ref: < DBC.VehicleSeat.ID]
     MouseLookOffsetPitch float
     CameraFadeDistScalarMin float
     CameraFadeDistScalarMax float
@@ -2143,11 +2143,11 @@ Table Vehicle {
     CameraYawOffset float
     UiLocomotionType int
     MsslTrgtImpactTexRadius float
-    VehicleUIIndicatorID int [ref: < VehicleUIIndicator.ID]
-    PowerDisplayID int [ref: < PowerDisplay.ID]
+    VehicleUIIndicatorID int [ref: < DBC.VehicleUIIndicator.ID]
+    PowerDisplayID int [ref: < DBC.PowerDisplay.ID]
     Note: 'Vehicle client database table for version 3.3.5.12340'
 }
-Table VehicleSeat {
+Table DBC.VehicleSeat {
     ID int [primary key]
     Field_3_3_5_12213_001 float
     AttachmentID int
@@ -2188,7 +2188,7 @@ Table VehicleSeat {
     Field_3_3_5_12213_037 float
     Field_3_3_5_12213_038 float
     VehicleAbilityDisplay int
-    EnterUISoundID int [ref: < SoundEntries.ID]
+    EnterUISoundID int [ref: < DBC.SoundEntries.ID]
     Field_3_3_5_12213_041 int
     UiSkin int
     Field_3_3_5_12213_043 float
@@ -2206,20 +2206,20 @@ Table VehicleSeat {
     Field_3_3_5_12213_055 float
     Note: 'VehicleSeat client database table for version 3.3.5.12340'
 }
-Table VehicleUIIndicator {
+Table DBC.VehicleUIIndicator {
     ID int [primary key]
     BackgroundTexture string
     Note: 'VehicleUIIndicator client database table for version 3.3.5.12340'
 }
-Table VehicleUIIndSeat {
+Table DBC.VehicleUIIndSeat {
     ID int [primary key]
-    VehicleUIIndicatorID int [ref: < VehicleUIIndicator.ID]
+    VehicleUIIndicatorID int [ref: < DBC.VehicleUIIndicator.ID]
     VirtualSeatIndex int
     XPos float
     YPos float
     Note: 'VehicleUIIndSeat client database table for version 3.3.5.12340'
 }
-Table VideoHardware {
+Table DBC.VideoHardware {
     ID int [primary key]
     VendorID int
     DeviceID int
@@ -2245,82 +2245,82 @@ Table VideoHardware {
     Atlasdisable int
     Note: 'VideoHardware client database table for version 3.3.5.12340'
 }
-Table VocalUISounds {
+Table DBC.VocalUISounds {
     ID int [primary key]
     VocalUIEnum int
-    RaceID int [ref: < ChrRaces.ID]
-    NormalSoundID int [ref: < SoundEntries.ID]
-    PissedSoundID int [ref: < SoundEntries.ID]
+    RaceID int [ref: < DBC.ChrRaces.ID]
+    NormalSoundID int
+    PissedSoundID int
     Note: 'VocalUISounds client database table for version 3.3.5.12340'
 }
-Table WeaponImpactSounds {
+Table DBC.WeaponImpactSounds {
     ID int [primary key]
     WeaponSubClassID int
     ParrySoundType int
-    ImpactSoundID int [ref: < SoundEntries.ID]
-    CritImpactSoundID int [ref: < SoundEntries.ID]
+    ImpactSoundID int [ref: < DBC.SoundEntries.ID]
+    CritImpactSoundID int [ref: < DBC.SoundEntries.ID]
     Note: 'WeaponImpactSounds client database table for version 3.3.5.12340'
 }
-Table WeaponSwingSounds2 {
+Table DBC.WeaponSwingSounds2 {
     ID int [primary key]
     SwingType int
     Crit int
-    SoundID int [ref: < SoundEntries.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
     Note: 'WeaponSwingSounds2 client database table for version 3.3.5.12340'
 }
-Table Weather {
+Table DBC.Weather {
     ID int [primary key]
-    AmbienceID int [ref: < SoundEntries.ID]
+    AmbienceID int [ref: < DBC.SoundEntries.ID]
     EffectType int
     TransitionSkyBox float
     EffectColor float
     EffectTexture string
     Note: 'Weather client database table for version 3.3.5.12340'
 }
-Table WMOAreaTable {
+Table DBC.WMOAreaTable {
     ID int [primary key]
     WMOID int
     NameSetID int
     WMOGroupID int
-    SoundProviderPref int [ref: < SoundProviderPreferences.ID]
-    SoundProviderPrefUnderwater int [ref: < SoundProviderPreferences.ID]
-    AmbienceID int [ref: < SoundAmbience.ID]
-    ZoneMusic int [ref: < ZoneMusic.ID]
-    IntroSound int [ref: < ZoneIntroMusicTable.ID]
+    SoundProviderPref int [ref: < DBC.SoundProviderPreferences.ID]
+    SoundProviderPrefUnderwater int [ref: < DBC.SoundProviderPreferences.ID]
+    AmbienceID int [ref: < DBC.SoundAmbience.ID]
+    ZoneMusic int [ref: < DBC.ZoneMusic.ID]
+    IntroSound int [ref: < DBC.ZoneIntroMusicTable.ID]
     Flags int
-    AreaTableID int [ref: < AreaTable.ID]
+    AreaTableID int [ref: < DBC.AreaTable.ID]
     AreaName_lang locstring
     Note: 'WMOAreaTable client database table for version 3.3.5.12340'
 }
-Table WorldChunkSounds {
+Table DBC.WorldChunkSounds {
     ID int [primary key]
     ChunkX int
     ChunkY int
     SubchunkX int
     SubchunkY int
     ZoneIntroMusicID int
-    ZoneMusicID int [ref: < ZoneMusic.ID]
-    SoundAmbienceID int [ref: < SoundAmbience.ID]
-    SoundProviderPreferencesID int [ref: < SoundProviderPreferences.ID]
+    ZoneMusicID int [ref: < DBC.ZoneMusic.ID]
+    SoundAmbienceID int [ref: < DBC.SoundAmbience.ID]
+    SoundProviderPreferencesID int [ref: < DBC.SoundProviderPreferences.ID]
     Note: 'WorldChunkSounds client database table for version 3.3.5.12340'
 }
-Table WorldMapArea {
+Table DBC.WorldMapArea {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
-    AreaID int [ref: < AreaTable.ID]
+    MapID int [ref: < DBC.Map.ID]
+    AreaID int [ref: < DBC.AreaTable.ID]
     AreaName string
     LocLeft float
     LocRight float
     LocTop float
     LocBottom float
-    DisplayMapID int [ref: < Map.ID]
+    DisplayMapID int [ref: < DBC.Map.ID]
     DefaultDungeonFloor int
-    ParentWorldMapID int [ref: < WorldMapArea.ID]
+    ParentWorldMapID int [ref: < DBC.WorldMapArea.ID]
     Note: 'WorldMapArea client database table for version 3.3.5.12340'
 }
-Table WorldMapContinent {
+Table DBC.WorldMapContinent {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     LeftBoundary int
     RightBoundary int
     TopBoundary int
@@ -2329,13 +2329,13 @@ Table WorldMapContinent {
     Scale float
     TaxiMin float
     TaxiMax float
-    WorldMapID int [ref: < WorldMapArea.ID]
+    WorldMapID int [ref: < DBC.WorldMapArea.ID]
     Note: 'WorldMapContinent client database table for version 3.3.5.12340'
 }
-Table WorldMapOverlay {
+Table DBC.WorldMapOverlay {
     ID int [primary key]
-    MapAreaID int [ref: < WorldMapArea.ID]
-    AreaID int [ref: < AreaTable.ID]
+    MapAreaID int [ref: < DBC.WorldMapArea.ID]
+    AreaID int [ref: < DBC.AreaTable.ID]
     MapPointX int
     MapPointY int
     TextureName string
@@ -2349,27 +2349,27 @@ Table WorldMapOverlay {
     HitRectRight int
     Note: 'WorldMapOverlay client database table for version 3.3.5.12340'
 }
-Table WorldMapTransforms {
+Table DBC.WorldMapTransforms {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
+    MapID int [ref: < DBC.Map.ID]
     RegionMin float
     RegionMax float
-    NewMapID int [ref: < Map.ID]
+    NewMapID int [ref: < DBC.Map.ID]
     RegionOffset float
-    NewDungeonMapID int [ref: < DungeonMap.ID]
+    NewDungeonMapID int [ref: < DBC.DungeonMap.ID]
     Note: 'WorldMapTransforms client database table for version 3.3.5.12340'
 }
-Table WorldSafeLocs {
+Table DBC.WorldSafeLocs {
     ID int [primary key]
-    Continent int [ref: < Map.ID]
+    Continent int [ref: < DBC.Map.ID]
     Loc float
     AreaName_lang locstring
     Note: 'WorldSafeLocs client database table for version 3.3.5.12340'
 }
-Table WorldStateUI {
+Table DBC.WorldStateUI {
     ID int [primary key]
-    MapID int [ref: < Map.ID]
-    AreaID int [ref: < AreaTable.ID]
+    MapID int [ref: < DBC.Map.ID]
+    AreaID int [ref: < DBC.AreaTable.ID]
     PhaseShift int
     Icon string
     String_lang locstring
@@ -2382,36 +2382,36 @@ Table WorldStateUI {
     ExtendedUIStateVariable int
     Note: 'WorldStateUI client database table for version 3.3.5.12340'
 }
-Table WorldStateZoneSounds {
+Table DBC.WorldStateZoneSounds {
     WorldStateID int
     WorldStateValue int
-    AreaID int [ref: < AreaTable.ID]
-    WMOAreaID int [ref: < WMOAreaTable.ID]
-    ZoneIntroMusicID int [ref: < ZoneIntroMusicTable.ID]
-    ZoneMusicID int [ref: < ZoneMusic.ID]
-    SoundAmbienceID int [ref: < SoundAmbience.ID]
-    SoundProviderPreferencesID int [ref: < SoundProviderPreferences.ID]
+    AreaID int [ref: < DBC.AreaTable.ID]
+    WMOAreaID int [ref: < DBC.WMOAreaTable.ID]
+    ZoneIntroMusicID int [ref: < DBC.ZoneIntroMusicTable.ID]
+    ZoneMusicID int [ref: < DBC.ZoneMusic.ID]
+    SoundAmbienceID int [ref: < DBC.SoundAmbience.ID]
+    SoundProviderPreferencesID int [ref: < DBC.SoundProviderPreferences.ID]
     Note: 'WorldStateZoneSounds client database table for version 3.3.5.12340'
 }
-Table WowError_Strings {
+Table DBC.WowError_Strings {
     ID int [primary key]
     Name string
     Description_lang locstring
     Note: 'WowError_Strings client database table for version 3.3.5.12340'
 }
-Table ZoneIntroMusicTable {
+Table DBC.ZoneIntroMusicTable {
     ID int [primary key]
     Name string
-    SoundID int [ref: < SoundEntries.ID]
+    SoundID int [ref: < DBC.SoundEntries.ID]
     Priority int
     MinDelayMinutes int
     Note: 'ZoneIntroMusicTable client database table for version 3.3.5.12340'
 }
-Table ZoneMusic {
+Table DBC.ZoneMusic {
     ID int [primary key]
     SetName string
     SilenceIntervalMin int
     SilenceIntervalMax int
-    Sounds int [ref: < SoundEntries.ID]
+    Sounds int [ref: < DBC.SoundEntries.ID]
     Note: 'ZoneMusic client database table for version 3.3.5.12340'
 }
